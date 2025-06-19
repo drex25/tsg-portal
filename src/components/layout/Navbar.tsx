@@ -121,9 +121,9 @@ const Navbar = () => {
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${showMegaMenu ? 'rotate-180' : ''}`} />
                 </button>
 
-                {/* Compact Mega Menu */}
+                {/* Mega Menu - Posicionado correctamente */}
                 {showMegaMenu && (
-                  <div className="absolute top-full right-0 mt-1 w-[900px] transform -translate-x-1/2">
+                  <div className="absolute top-full left-0 mt-1 w-[800px] transform -translate-x-3/4">
                     <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
                       {/* Compact Header */}
                       <div className="bg-gradient-to-r from-[#0056A6] to-[#004494] text-white px-6 py-3">
