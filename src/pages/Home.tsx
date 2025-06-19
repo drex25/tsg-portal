@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Code, Users, Zap, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb } from 'lucide-react';
+import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb } from 'lucide-react';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
@@ -9,24 +9,6 @@ const Home = () => {
     { number: '7', label: 'Provincias' },
     { number: '360°', label: 'Visión integral' },
     { number: '+15', label: 'Años de experiencia' }
-  ];
-
-  const services = [
-    {
-      icon: <Code className="h-8 w-8" />,
-      title: "Desarrollo de Software",
-      description: "Aplicaciones web y móviles de última generación"
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: "Consultoría IT",
-      description: "Asesoramiento estratégico en transformación digital"
-    },
-    {
-      icon: <Zap className="h-8 w-8" />,
-      title: "Innovación Tecnológica",
-      description: "Soluciones disruptivas para el futuro"
-    }
   ];
 
   const locations = [
@@ -41,7 +23,7 @@ const Home = () => {
       title: "Ofrecemos Soluciones Tecnológicas con una visión 360°."
     },
     {
-      icon: <Users className="h-8 w-8" />,
+      icon: <User className="h-8 w-8" />,
       title: "Contamos con un equipo de más de 200 profesionales altamente calificados en tributación y tecnología."
     },
     {
@@ -56,6 +38,20 @@ const Home = () => {
       icon: <Lightbulb className="h-8 w-8" />,
       title: "Combinamos dos universos complejos, lo público y privado, potenciándolos para la innovación."
     }
+  ];
+
+  // Logos de empresas que confían en TSGroup
+  const clientLogos = [
+    { name: "Microsoft", logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Google", logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Amazon", logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "IBM", logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Oracle", logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "SAP", logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Salesforce", logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Adobe", logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Cisco", logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
+    { name: "Intel", logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" }
   ];
 
   return (
@@ -167,98 +163,154 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-20 bg-white">
+      {/* FAQ Section - ¿Qué hacemos? */}
+      <FAQ />
+
+      {/* Quiénes confían en nosotros */}
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Nuestros Servicios
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Quiénes confían en nosotros
             </h2>
-            <div className="w-24 h-1 bg-[#0056A6] mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Ofrecemos soluciones tecnológicas integrales que transforman la manera 
-              en que las organizaciones operan y crecen
+            <div className="w-32 h-1 bg-gradient-to-r from-[#0A0E20] to-[#0056A6] mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Construimos relaciones a largo plazo basadas en la confianza, 
+              la excelencia y el compromiso con el éxito de nuestros clientes
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {services.map((service, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0056A6] to-[#004494] text-white rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#0056A6] transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link 
-              to="/servicios"
-              className="inline-flex items-center px-8 py-4 bg-[#0056A6] text-white font-semibold rounded-lg hover:bg-[#004494] transition-colors transform hover:scale-105"
-            >
-              Ver todos los servicios
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <FAQ />
-
-      {/* Trust Section with dark theme */}
-      <section className="py-20 bg-[#0A0E20]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-white mb-4">
-              Por qué confiar en TSGroup
-            </h2>
-            <div className="w-24 h-1 bg-[#0056A6] mx-auto mb-6"></div>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Trust Indicators */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#0056A6] to-[#004494] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Star className="h-10 w-10" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Excelencia</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Más de 15 años de experiencia entregando soluciones de calidad superior 
-                que superan las expectativas de nuestros clientes
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Excelencia</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Comprometidos con la calidad y la satisfacción del cliente en cada proyecto que desarrollamos
               </p>
             </div>
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#0056A6] to-[#004494] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Handshake className="h-10 w-10" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Confianza</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Relaciones sólidas y duraderas construidas sobre la transparencia, 
-                el profesionalismo y el compromiso con el éxito
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Confianza</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Relaciones sólidas construidas sobre la transparencia, el profesionalismo y la integridad
               </p>
             </div>
             <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#0056A6] to-[#004494] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
                 <Award className="h-10 w-10" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">Resultados</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Soluciones efectivas que generan valor real y medible, 
-                impulsando el crecimiento y la eficiencia operativa
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Resultados</h3>
+              <p className="text-gray-600 leading-relaxed">
+                Soluciones efectivas que generan valor real y medible para nuestros clientes
               </p>
+            </div>
+          </div>
+
+          {/* Animated Client Logos Carousel */}
+          <div className="relative">
+            <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              Nuestros Partners y Clientes
+            </h3>
+            
+            {/* Gradient overlays for smooth fade effect */}
+            <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+            
+            {/* Scrolling container */}
+            <div className="overflow-hidden">
+              <div className="flex animate-scroll space-x-8">
+                {/* First set of logos */}
+                {clientLogos.map((client, index) => (
+                  <div 
+                    key={`first-${index}`}
+                    className="flex-shrink-0 w-48 h-24 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center border border-gray-100 group"
+                  >
+                    <div className="relative w-full h-full overflow-hidden rounded-xl">
+                      <img 
+                        src={client.logo} 
+                        alt={client.name}
+                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white">
+                        <div className="text-center">
+                          <Building className="h-8 w-8 mx-auto mb-2" />
+                          <div className="font-bold text-sm">{client.name}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+                
+                {/* Duplicate set for seamless loop */}
+                {clientLogos.map((client, index) => (
+                  <div 
+                    key={`second-${index}`}
+                    className="flex-shrink-0 w-48 h-24 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center border border-gray-100 group"
+                  >
+                    <div className="relative w-full h-full overflow-hidden rounded-xl">
+                      <img 
+                        src={client.logo} 
+                        alt={client.name}
+                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          target.nextElementSibling?.classList.remove('hidden');
+                        }}
+                      />
+                      <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white">
+                        <div className="text-center">
+                          <Building className="h-8 w-8 mx-auto mb-2" />
+                          <div className="font-bold text-sm">{client.name}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonial */}
+          <div className="mt-20 text-center">
+            <div className="bg-gradient-to-r from-gray-50 via-blue-50 to-gray-50 rounded-3xl p-12 border border-gray-100 relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0056A6]/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0A0E20]/5 rounded-full blur-3xl"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-8">
+                  <Star className="h-8 w-8" />
+                </div>
+                <blockquote className="text-2xl md:text-3xl text-gray-700 italic mb-8 font-light leading-relaxed">
+                  "TSGroup ha sido un socio estratégico fundamental en nuestra transformación digital. 
+                  Su profesionalismo, capacidad técnica y compromiso superaron nuestras expectativas."
+                </blockquote>
+                <div className="text-[#0056A6] font-bold text-lg">
+                  — Cliente Satisfecho
+                </div>
+                <div className="text-gray-500 text-sm mt-2">
+                  Sector Público
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Locations Preview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -272,7 +324,7 @@ const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {locations.map((location, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
                 <div className="flex items-start mb-4">
                   <div className="w-12 h-12 bg-[#0056A6] text-white rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
                     <Building className="h-6 w-6" />
