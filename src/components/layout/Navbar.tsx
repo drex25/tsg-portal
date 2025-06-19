@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, Users, MapPin, Heart, Building, Shield, Zap, Globe, Building2, Music, Eye, FileCheck } from 'lucide-react';
+import logo from '../../assets/LOGO-TSGROUP.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -81,16 +82,10 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex-shrink-0 flex items-center">
             <img 
-              src="/logo-tsgroup.svg" 
+              src={logo} 
               alt="TSGroup" 
-              className="h-8 w-auto"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                target.nextElementSibling?.classList.remove('hidden');
-              }}
+              className="h-10 w-auto"
             />
-            <div className="hidden text-2xl font-bold text-[#0056A6]">TSGroup</div>
           </Link>
 
           {/* Desktop Navigation */}
