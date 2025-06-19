@@ -7,13 +7,6 @@ import FAQ from '../components/FAQ';
 const Home = () => {
   const [currentLocationIndex, setCurrentLocationIndex] = useState(0);
 
-  const stats = [
-    { number: '+200', label: 'Profesionales' },
-    { number: '7', label: 'Provincias' },
-    { number: '360°', label: 'Visión integral' },
-    { number: '+15', label: 'Años de experiencia' }
-  ];
-
   const locations = [
     {
       city: "Buenos Aires",
@@ -174,7 +167,7 @@ const Home = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section - Enhanced Design */}
+      {/* Hero Section - Enhanced Design with Improved Layout */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Enhanced Background with better gradients */}
         <div 
@@ -212,8 +205,8 @@ const Home = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white">
           <div className="max-w-6xl mx-auto">
             {/* Enhanced Main Title */}
-            <div className="mb-12">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-snug mb-4 tracking-tight">
+            <div className="mb-16">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 tracking-tight">
                 Soluciones tecnológicas para la{' '}
                 <span className="relative">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-blue-200 animate-pulse">
@@ -225,17 +218,41 @@ const Home = () => {
               </h1>
               
               {/* Enhanced subtitle */}
-              <p className="text-lg md:text-xl text-blue-100 font-light max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl text-blue-100 font-light max-w-4xl mx-auto leading-relaxed mb-12">
                 Transformamos ideas en soluciones digitales que impulsan el crecimiento y la eficiencia
               </p>
+
+              {/* Enhanced CTA Buttons - Moved up */}
+              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+                <Link 
+                  to="/nosotros"
+                  className="group inline-flex items-center px-12 py-6 bg-gradient-to-r from-white to-blue-50 text-[#0A0E20] font-bold rounded-2xl hover:from-blue-50 hover:to-white transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/30 text-lg"
+                  style={{
+                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
+                  }}
+                >
+                  <span className="mr-3">Conocé más sobre nosotros</span>
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                <Link 
+                  to="/contacto"
+                  className="group inline-flex items-center px-12 py-6 border-2 border-white/80 text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white transition-all duration-500 backdrop-blur-md transform hover:scale-105 text-lg"
+                  style={{
+                    boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
+                  }}
+                >
+                  <span className="mr-3">Hablemos de tu proyecto</span>
+                  <ArrowRight className="h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </div>
             </div>
             
-            {/* Enhanced Feature Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
+            {/* Enhanced Feature Cards Grid - Redesigned for better visual hierarchy */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
               {heroFeatures.map((feature, index) => (
                 <div 
                   key={index}
-                  className="group relative bg-black/20 backdrop-blur-md border border-white/20 rounded-3xl p-6 hover:bg-black/30 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105"
+                  className="group relative bg-black/20 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-black/30 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105"
                   style={{
                     background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
                     backdropFilter: 'blur(20px)',
@@ -248,14 +265,14 @@ const Home = () => {
                   
                   <div className="relative z-10">
                     {/* Enhanced Icon Container */}
-                    <div className="w-16 h-16 bg-gradient-to-br from-white/25 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gradient-to-br group-hover:from-blue-400/40 group-hover:to-purple-400/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                    <div className="w-20 h-20 bg-gradient-to-br from-white/25 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gradient-to-br group-hover:from-blue-400/40 group-hover:to-purple-400/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                       <div className="text-blue-200 group-hover:text-white transition-colors duration-500 transform group-hover:scale-110">
                         {feature.icon}
                       </div>
                     </div>
                     
                     {/* Enhanced Text */}
-                    <p className="text-sm md:text-base text-white/90 group-hover:text-white leading-relaxed font-medium group-hover:font-semibold transition-all duration-500">
+                    <p className="text-base md:text-lg text-white/90 group-hover:text-white leading-relaxed font-medium group-hover:font-semibold transition-all duration-500 text-center">
                       {feature.title}
                     </p>
                   </div>
@@ -265,48 +282,6 @@ const Home = () => {
                   
                   {/* Subtle border animation */}
                   <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-white/30 transition-all duration-700"></div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
-              <Link 
-                to="/nosotros"
-                className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-white to-blue-50 text-[#0A0E20] font-bold rounded-2xl hover:from-blue-50 hover:to-white transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/30 hover:shadow-2xl"
-                style={{
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
-                }}
-              >
-                <span className="mr-2">Conocé más sobre nosotros</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-              <Link 
-                to="/contacto"
-                className="group inline-flex items-center px-10 py-5 border-2 border-white/80 text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white transition-all duration-500 backdrop-blur-md transform hover:scale-105"
-                style={{
-                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
-                }}
-              >
-                <span className="mr-2">Hablemos de tu proyecto</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Link>
-            </div>
-
-            {/* Enhanced Stats Section */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="relative">
-                    <div className="text-4xl md:text-5xl font-black text-white mb-3 group-hover:text-blue-200 transition-colors duration-500 transform group-hover:scale-110">
-                      {stat.number}
-                    </div>
-                    <div className="text-blue-200 font-semibold group-hover:text-white transition-colors duration-500 text-lg">
-                      {stat.label}
-                    </div>
-                    {/* Subtle underline effect */}
-                    <div className="w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto group-hover:w-16 transition-all duration-500"></div>
-                  </div>
                 </div>
               ))}
             </div>
