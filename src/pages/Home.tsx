@@ -518,9 +518,23 @@ const Home = () => {
       </section>
 
       {/* Locations Section with Full Width Map and Floating Info Box */}
-      <section className="relative h-screen bg-gray-900">
-        {/* Full Width Map */}
-        <div className="absolute inset-0">
+      <section className="relative h-screen bg-gray-900 overflow-hidden">
+        {/* Header Overlay - Positioned at the very top */}
+        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent h-40 z-50 pointer-events-none">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+            <div className="text-center">
+              <h2 className="text-4xl font-bold text-white mb-2">
+                Presencia Nacional
+              </h2>
+              <p className="text-blue-100">
+                Oficinas estratégicamente ubicadas para brindar un servicio cercano
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Full Width Map - Lower z-index */}
+        <div className="absolute inset-0 z-10">
           <LocationMap
             locations={locations}
             currentLocation={currentLocation}
@@ -528,9 +542,9 @@ const Home = () => {
           />
         </div>
 
-        {/* Floating Info Box */}
-        <div className="absolute top-8 left-1/2 transform -translate-x-1/2 z-20">
-          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 p-8 min-w-[400px] max-w-lg">
+        {/* Floating Info Box - Higher z-index and better positioning */}
+        <div className="absolute top-32 left-1/2 transform -translate-x-1/2 z-40 pointer-events-auto">
+          <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/30 p-8 min-w-[420px] max-w-lg">
             {/* Navigation */}
             <div className="flex justify-between items-center mb-6">
               <button 
@@ -586,16 +600,23 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Header Overlay */}
-        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/50 to-transparent h-32 z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
+        {/* Bottom CTA - Positioned at bottom with high z-index */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40 pointer-events-auto">
+          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20 p-6">
             <div className="text-center">
-              <h2 className="text-4xl font-bold text-white mb-2">
-                Presencia Nacional
-              </h2>
-              <p className="text-blue-100">
-                Oficinas estratégicamente ubicadas para brindar un servicio cercano
+              <h3 className="text-lg font-bold text-gray-900 mb-2">
+                ¿Querés visitarnos?
+              </h3>
+              <p className="text-gray-600 mb-4 text-sm">
+                Coordiná una reunión en cualquiera de nuestras oficinas
               </p>
+              <Link 
+                to="/contacto"
+                className="inline-flex items-center px-6 py-3 bg-[#0056A6] text-white font-semibold rounded-lg hover:bg-[#004494] transition-all duration-300 transform hover:scale-105 shadow-lg text-sm"
+              >
+                <MapPin className="h-4 w-4 mr-2" />
+                Coordinar reunión
+              </Link>
             </div>
           </div>
         </div>
