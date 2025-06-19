@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb } from 'lucide-react';
+import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target } from 'lucide-react';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
@@ -52,6 +52,29 @@ const Home = () => {
     { name: "Adobe", logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
     { name: "Cisco", logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
     { name: "Intel", logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" }
+  ];
+
+  const proposalFeatures = [
+    {
+      icon: <Award className="h-8 w-8" />,
+      title: "Experiencia y profesionalismo",
+      description: "Un equipo experto comprometido con tu éxito."
+    },
+    {
+      icon: <Zap className="h-8 w-8" />,
+      title: "Soluciones innovadoras",
+      description: "Usamos tecnología para mejorar la eficiencia y el crecimiento."
+    },
+    {
+      icon: <Target className="h-8 w-8" />,
+      title: "Enfoque personalizado",
+      description: "Adaptamos nuestros servicios a tus necesidades."
+    },
+    {
+      icon: <Users className="h-8 w-8" />,
+      title: "Capital humano clave",
+      description: "Contamos con equipos de alto rendimiento."
+    }
   ];
 
   return (
@@ -309,6 +332,110 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Nueva Sección: Nuestra Propuesta */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 right-20 w-96 h-96 bg-[#0056A6]/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#0A0E20]/5 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-purple-400/5 to-transparent rounded-full"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-3xl mb-8 shadow-2xl">
+              <Handshake className="h-10 w-10" />
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-900 mb-8">
+              Nuestra Propuesta
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-[#0A0E20] to-[#0056A6] mx-auto mb-8"></div>
+            <div className="max-w-4xl mx-auto">
+              <p className="text-2xl md:text-3xl text-gray-700 leading-relaxed mb-8 font-light">
+                En TSGroup, no solo ofrecemos servicios, sino que construimos relaciones de confianza.
+              </p>
+              <p className="text-xl text-gray-600 leading-relaxed">
+                Te invitamos a conocer cómo podemos ayudarte a lograr tus objetivos.
+              </p>
+            </div>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {proposalFeatures.map((feature, index) => (
+              <div 
+                key={index}
+                className="group relative bg-white/95 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 border border-gray-100 overflow-hidden transform hover:-translate-y-2"
+              >
+                {/* Gradient Border Effect */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[#0A0E20]/10 via-[#0056A6]/10 to-[#004494]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                <div className="relative z-10 flex items-start space-x-6">
+                  {/* Icon */}
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    {feature.icon}
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="flex-1">
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[#0056A6] transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed text-lg">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Subtle Animation Line */}
+                <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-[#0A0E20] to-[#0056A6] transition-all duration-500 w-0 group-hover:w-full"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-[#0A0E20] via-[#0056A6] to-[#004494] rounded-3xl p-16 text-white relative overflow-hidden">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-white rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-300 rounded-full blur-3xl"></div>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-300 rounded-full blur-3xl"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mx-auto mb-8">
+                  <CheckCircle className="h-8 w-8 text-white" />
+                </div>
+                <h3 className="text-4xl md:text-5xl font-bold mb-8">
+                  ¿Listo para comenzar?
+                </h3>
+                <p className="text-xl md:text-2xl text-blue-100 mb-12 max-w-4xl mx-auto leading-relaxed">
+                  Conversemos sobre cómo nuestras soluciones pueden transformar tu organización 
+                  y llevarte al siguiente nivel de eficiencia y crecimiento
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <Link 
+                    to="/contacto"
+                    className="inline-flex items-center px-10 py-5 bg-white text-[#0A0E20] font-bold rounded-xl hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                  >
+                    Contactanos ahora
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                  <Link 
+                    to="/servicios"
+                    className="inline-flex items-center px-10 py-5 border-2 border-white text-white font-bold rounded-xl hover:bg-white hover:text-[#0A0E20] transition-all duration-300 text-lg"
+                  >
+                    Ver nuestros servicios
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Locations Preview */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -339,34 +466,6 @@ const Home = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section with dark theme */}
-      <section className="py-20 bg-gradient-to-r from-[#0A0E20] via-[#0056A6] to-[#004494]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">
-            ¿Listo para transformar tu organización?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
-            Conversemos sobre cómo nuestras soluciones tecnológicas pueden impulsar 
-            el crecimiento y la eficiencia de tu empresa
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              to="/contacto"
-              className="inline-flex items-center px-8 py-4 bg-white text-[#0A0E20] font-semibold rounded-lg hover:bg-blue-50 transition-colors transform hover:scale-105"
-            >
-              Contactanos ahora
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <Link 
-              to="/servicios"
-              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#0A0E20] transition-colors"
-            >
-              Ver nuestros servicios
-            </Link>
           </div>
         </div>
       </section>
