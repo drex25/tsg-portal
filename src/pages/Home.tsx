@@ -22,7 +22,10 @@ const Home = () => {
       type: "Oficina Principal",
       phone: "(+54) 011 4313-3596/3727",
       email: "info@tdi.com.ar",
-      coordinates: { lat: -34.6037, lng: -58.3816 }
+      coordinates: { lat: -34.6037, lng: -58.3816 },
+      description: "Nuestra sede principal en el corazón financiero de Argentina",
+      employees: "120+ profesionales",
+      services: ["Desarrollo", "Consultoría", "Gestión de Proyectos"]
     },
     {
       city: "Posadas",
@@ -31,7 +34,10 @@ const Home = () => {
       type: "Oficina Regional",
       phone: "(+54) 376 444-5555",
       email: "posadas@tsgroup.com.ar",
-      coordinates: { lat: -27.3676, lng: -55.8961 }
+      coordinates: { lat: -27.3676, lng: -55.8961 },
+      description: "Centro de operaciones para el noreste argentino",
+      employees: "50+ profesionales",
+      services: ["Desarrollo", "Soporte Técnico", "Implementación"]
     },
     {
       city: "Posadas",
@@ -40,7 +46,10 @@ const Home = () => {
       type: "Oficina Operativa",
       phone: "(+54) 376 444-5556",
       email: "posadas.operativa@tsgroup.com.ar",
-      coordinates: { lat: -27.3650, lng: -55.8940 }
+      coordinates: { lat: -27.3650, lng: -55.8940 },
+      description: "Hub especializado en operaciones y desarrollo",
+      employees: "30+ profesionales",
+      services: ["Call Center", "Videovigilancia", "Soporte 24/7"]
     }
   ];
 
@@ -523,63 +532,81 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Locations Section with Interactive Map and Slides */}
-      <section className="py-24 bg-gradient-to-br from-[#0A0E20] via-[#0056A6] to-[#004494] relative overflow-hidden">
-        {/* Background Elements */}
+      {/* Enhanced Locations Section with Interactive Map and Slides */}
+      <section className="py-32 bg-gradient-to-br from-[#0A0E20] via-[#0056A6] to-[#004494] relative overflow-hidden">
+        {/* Enhanced Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-white/5 to-transparent rounded-full"></div>
+          <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-radial from-white/5 to-transparent rounded-full"></div>
+          
+          {/* Floating geometric shapes */}
+          <div className="absolute top-20 left-20 w-20 h-20 border border-white/10 rounded-xl rotate-45 animate-pulse"></div>
+          <div className="absolute bottom-32 right-32 w-16 h-16 border border-white/10 rounded-full animate-bounce delay-500"></div>
+          <div className="absolute top-1/3 right-20 w-12 h-12 bg-white/5 rounded-lg rotate-12 animate-pulse delay-700"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl mb-8 border border-white/30">
-              <MapPin className="h-10 w-10 text-white" />
+          {/* Enhanced Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-white/15 backdrop-blur-sm rounded-3xl mb-8 border border-white/20 shadow-2xl">
+              <MapPin className="h-12 w-12 text-white" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+            <h2 className="text-6xl md:text-7xl font-bold text-white mb-8 tracking-tight">
               Presencia Nacional
             </h2>
-            <div className="w-32 h-1 bg-white mx-auto mb-8"></div>
-            <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+            <div className="w-40 h-1.5 bg-gradient-to-r from-white via-blue-200 to-white mx-auto mb-10 rounded-full"></div>
+            <p className="text-2xl text-blue-100 max-w-5xl mx-auto leading-relaxed font-light">
               Con oficinas estratégicamente ubicadas para brindar un servicio cercano y personalizado en todo el país
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Interactive Map */}
-            <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-                <div className="relative h-[500px] rounded-2xl overflow-hidden">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Enhanced Interactive Map */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-white/20 to-blue-300/20 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+              <div className="relative bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-2xl">
+                <div className="relative h-[600px] rounded-2xl overflow-hidden shadow-inner">
                   <LocationMap
                     locations={locations}
                     currentLocation={currentLocation}
                     onMarkerClick={setCurrentLocationIndex}
                   />
+                  {/* Map overlay with subtle gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+                </div>
+                
+                {/* Map Stats Overlay */}
+                <div className="absolute top-12 right-12 bg-white/20 backdrop-blur-sm rounded-2xl p-4 border border-white/30">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-white">{locations.length}</div>
+                    <div className="text-sm text-blue-100">Oficinas</div>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Location Slide */}
+            {/* Enhanced Location Slide */}
             <div className="relative">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 min-h-[400px]">
-                {/* Navigation Arrows */}
-                <div className="flex justify-between items-center mb-6">
+              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-10 border border-white/20 min-h-[600px] shadow-2xl">
+                {/* Enhanced Navigation */}
+                <div className="flex justify-between items-center mb-8">
                   <button 
                     onClick={prevLocation}
-                    className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+                    className="group w-14 h-14 bg-white/15 hover:bg-white/25 rounded-2xl flex items-center justify-center transition-all duration-300 border border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl transform hover:scale-110"
                   >
-                    <ChevronLeft className="h-6 w-6 text-white" />
+                    <ChevronLeft className="h-7 w-7 text-white group-hover:text-blue-100 transition-colors" />
                   </button>
                   
-                  <div className="flex space-x-2">
+                  <div className="flex space-x-3">
                     {locations.map((_, index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentLocationIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                          index === currentLocationIndex ? 'bg-white' : 'bg-white/40'
+                        className={`transition-all duration-300 rounded-full ${
+                          index === currentLocationIndex 
+                            ? 'w-8 h-4 bg-white shadow-lg' 
+                            : 'w-4 h-4 bg-white/40 hover:bg-white/60'
                         }`}
                       />
                     ))}
@@ -587,41 +614,65 @@ const Home = () => {
                   
                   <button 
                     onClick={nextLocation}
-                    className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+                    className="group w-14 h-14 bg-white/15 hover:bg-white/25 rounded-2xl flex items-center justify-center transition-all duration-300 border border-white/30 hover:border-white/50 shadow-lg hover:shadow-xl transform hover:scale-110"
                   >
-                    <ChevronRight className="h-6 w-6 text-white" />
+                    <ChevronRight className="h-7 w-7 text-white group-hover:text-blue-100 transition-colors" />
                   </button>
                 </div>
 
-                {/* Location Content */}
+                {/* Enhanced Location Content */}
                 <div className="text-center text-white">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/30">
-                      <Building className="h-10 w-10 text-white" />
+                  <div className="mb-8">
+                    <div className="w-24 h-24 bg-white/15 rounded-3xl flex items-center justify-center mx-auto mb-6 border border-white/30 shadow-xl">
+                      <Building className="h-12 w-12 text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold mb-2">{currentLocation.city}</h3>
-                    <span className="text-blue-200 font-medium text-lg">{currentLocation.type}</span>
+                    <h3 className="text-4xl font-bold mb-3">{currentLocation.city}</h3>
+                    <span className="inline-block px-4 py-2 bg-white/20 text-blue-100 font-medium text-lg rounded-full border border-white/30">
+                      {currentLocation.type}
+                    </span>
                   </div>
                   
-                  <div className="space-y-6 mb-8">
-                    <div className="flex items-center justify-center text-blue-100">
-                      <MapPin className="h-5 w-5 mr-3 flex-shrink-0" />
-                      <div className="text-left">
-                        <div className="font-medium">{currentLocation.address}</div>
-                        <div className="text-sm opacity-80">{currentLocation.region}</div>
+                  {/* Enhanced Location Details */}
+                  <div className="space-y-6 mb-10">
+                    <div className="bg-white/10 rounded-2xl p-6 border border-white/20">
+                      <div className="flex items-start justify-center text-blue-100 mb-4">
+                        <MapPin className="h-6 w-6 mr-4 flex-shrink-0 mt-1" />
+                        <div className="text-left">
+                          <div className="font-semibold text-white text-lg">{currentLocation.address}</div>
+                          <div className="text-blue-200">{currentLocation.region}</div>
+                        </div>
+                      </div>
+                      <p className="text-blue-100 text-sm italic">{currentLocation.description}</p>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                        <Phone className="h-5 w-5 text-blue-200 mx-auto mb-2" />
+                        <div className="text-sm text-blue-100 font-medium">{currentLocation.phone}</div>
+                      </div>
+                      
+                      <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                        <Mail className="h-5 w-5 text-blue-200 mx-auto mb-2" />
+                        <a href={`mailto:${currentLocation.email}`} className="text-sm text-blue-100 hover:text-white transition-colors font-medium">
+                          {currentLocation.email}
+                        </a>
                       </div>
                     </div>
-                    
-                    <div className="flex items-center justify-center text-blue-100">
-                      <Phone className="h-5 w-5 mr-3 flex-shrink-0" />
-                      <span>{currentLocation.phone}</span>
+
+                    <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                      <Users className="h-5 w-5 text-blue-200 mx-auto mb-2" />
+                      <div className="text-sm text-blue-100 font-medium">{currentLocation.employees}</div>
                     </div>
-                    
-                    <div className="flex items-center justify-center text-blue-100">
-                      <Mail className="h-5 w-5 mr-3 flex-shrink-0" />
-                      <a href={`mailto:${currentLocation.email}`} className="hover:underline">
-                        {currentLocation.email}
-                      </a>
+
+                    <div className="bg-white/10 rounded-xl p-4 border border-white/20">
+                      <h4 className="text-white font-semibold mb-3">Servicios Principales</h4>
+                      <div className="flex flex-wrap gap-2 justify-center">
+                        {currentLocation.services.map((service, idx) => (
+                          <span key={idx} className="px-3 py-1 bg-white/20 text-blue-100 text-xs rounded-full border border-white/30">
+                            {service}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -629,22 +680,42 @@ const Home = () => {
             </div>
           </div>
 
-          {/* Contact CTA */}
-          <div className="mt-16 text-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
-              <h3 className="text-3xl font-bold text-white mb-6">
-                ¿Querés visitarnos?
-              </h3>
-              <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
-                Nuestras puertas están abiertas. Coordiná una reunión en cualquiera de nuestras oficinas.
-              </p>
-              <Link 
-                to="/contacto"
-                className="inline-flex items-center px-8 py-4 bg-white text-[#0A0E20] font-semibold rounded-xl hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
-              >
-                <MapPin className="h-5 w-5 mr-2" />
-                Coordinar reunión
-              </Link>
+          {/* Enhanced Contact CTA */}
+          <div className="mt-20 text-center">
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl p-16 border border-white/20 shadow-2xl relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute inset-0">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-2xl"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-300/10 rounded-full blur-2xl"></div>
+              </div>
+              
+              <div className="relative z-10">
+                <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-8 border border-white/30">
+                  <MapPin className="h-10 w-10 text-white" />
+                </div>
+                <h3 className="text-4xl md:text-5xl font-bold text-white mb-8">
+                  ¿Querés visitarnos?
+                </h3>
+                <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                  Nuestras puertas están abiertas. Coordiná una reunión en cualquiera de nuestras oficinas 
+                  y descubrí cómo podemos trabajar juntos.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6 justify-center">
+                  <Link 
+                    to="/contacto"
+                    className="inline-flex items-center px-10 py-5 bg-white text-[#0A0E20] font-bold rounded-2xl hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-2xl text-lg"
+                  >
+                    <MapPin className="h-6 w-6 mr-3" />
+                    Coordinar reunión
+                  </Link>
+                  <Link 
+                    to="/nosotros"
+                    className="inline-flex items-center px-10 py-5 border-2 border-white text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300 text-lg"
+                  >
+                    Conocé más sobre nosotros
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
