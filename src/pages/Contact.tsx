@@ -55,7 +55,7 @@ const Contact = () => {
           <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
             Contacto
@@ -78,7 +78,7 @@ const Contact = () => {
                   Hablemos de tu proyecto
                 </h2>
                 <p className="text-gray-600 leading-relaxed mb-8 text-lg">
-                  Nuestro equipo de expertos está listo para escuchar tus necesidades y 
+                  Nuestro equipo de expertos está listo para escuchar tus necesidades y
                   brindarte una solución personalizada que impulse el crecimiento de tu organización.
                 </p>
               </div>
@@ -144,7 +144,7 @@ const Contact = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
                 Envianos tu consulta
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="nombreApellido" className="block text-sm font-medium text-gray-700 mb-2">
@@ -253,7 +253,7 @@ const Contact = () => {
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <MapPin className="h-5 w-5 text-gray-400 mr-3 mt-0.5 flex-shrink-0" />
                   <div>
@@ -278,7 +278,7 @@ const Contact = () => {
               Encontranos en nuestras oficinas principales
             </p>
           </div>
-          
+
           <div className="bg-gray-100 rounded-2xl h-96 flex items-center justify-center">
             <div className="text-center text-gray-500">
               <MapPin className="h-16 w-16 mx-auto mb-4" />

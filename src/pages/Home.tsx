@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target, ChevronLeft, ChevronRight, Phone, Mail, Shield, Cloud, Database, Cpu } from 'lucide-react';
+import LocationMap from '../components/LocationMap';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
@@ -14,35 +15,32 @@ const Home = () => {
   ];
 
   const locations = [
-    { 
-      city: "Buenos Aires", 
-      address: "La Pampa 1391, Piso 2", 
+    {
+      city: "Buenos Aires",
+      address: "La Pampa 1391, Piso 2",
       region: "CABA",
       type: "Oficina Principal",
-      phone: "+54 11 1234-5678",
-      email: "buenosaires@tsgroup.com.ar",
-      coordinates: { lat: -34.6037, lng: -58.3816 },
-      image: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      phone: "(+54) 011 4313-3596/3727",
+      email: "info@tdi.com.ar",
+      coordinates: { lat: -34.6037, lng: -58.3816 }
     },
-    { 
-      city: "Posadas", 
-      address: "Bolívar 1729", 
+    {
+      city: "Posadas",
+      address: "Bolívar 1729",
       region: "Misiones",
       type: "Oficina Regional",
-      phone: "+54 376 444-5555",
+      phone: "(+54) 376 444-5555",
       email: "posadas@tsgroup.com.ar",
-      coordinates: { lat: -27.3676, lng: -55.8961 },
-      image: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      coordinates: { lat: -27.3676, lng: -55.8961 }
     },
-    { 
-      city: "Posadas", 
-      address: "Ayacucho 1475", 
+    {
+      city: "Posadas",
+      address: "Ayacucho 1475",
       region: "Misiones",
       type: "Oficina Operativa",
-      phone: "+54 376 444-6666",
-      email: "operaciones@tsgroup.com.ar",
-      coordinates: { lat: -27.3676, lng: -55.8961 },
-      image: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+      phone: "(+54) 376 444-5556",
+      email: "posadas.operativa@tsgroup.com.ar",
+      coordinates: { lat: -27.3650, lng: -55.8940 }
     }
   ];
 
@@ -182,72 +180,97 @@ const Home = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section with New Dark Background */}
+      {/* Hero Section - Enhanced Design */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with new dark color */}
+        {/* Enhanced Background with better gradients */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(135deg, #0A0E20 0%, rgba(10, 14, 32, 0.95) 30%, rgba(0, 86, 166, 0.8) 70%, rgba(0, 68, 148, 0.9) 100%), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
+            backgroundImage: `linear-gradient(135deg, #0A0E20 0%, rgba(10, 14, 32, 0.98) 25%, rgba(0, 86, 166, 0.85) 75%, rgba(0, 68, 148, 0.95) 100%), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
           }}
         />
         
         {/* Enhanced Animated Background Elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-white/5 to-transparent rounded-full"></div>
+          {/* Main gradient orbs */}
+          <div className="absolute top-20 left-10 w-80 h-80 bg-gradient-to-br from-blue-400/15 to-purple-400/10 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-purple-400/15 to-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
           
-          {/* Additional floating elements */}
-          <div className="absolute top-32 right-1/4 w-4 h-4 bg-blue-400/30 rounded-full animate-ping"></div>
-          <div className="absolute bottom-32 left-1/4 w-6 h-6 bg-purple-400/20 rounded-full animate-pulse delay-500"></div>
-          <div className="absolute top-1/3 left-1/6 w-3 h-3 bg-white/20 rounded-full animate-bounce delay-700"></div>
+          {/* Central glow effect */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-radial from-white/8 via-white/3 to-transparent rounded-full"></div>
+          
+          {/* Floating particles */}
+          <div className="absolute top-32 right-1/4 w-4 h-4 bg-blue-400/40 rounded-full animate-ping"></div>
+          <div className="absolute bottom-32 left-1/4 w-6 h-6 bg-purple-400/30 rounded-full animate-pulse delay-500"></div>
+          <div className="absolute top-1/3 left-1/6 w-3 h-3 bg-white/30 rounded-full animate-bounce delay-700"></div>
+          <div className="absolute top-2/3 right-1/6 w-5 h-5 bg-blue-300/25 rounded-full animate-pulse delay-300"></div>
+          
+          {/* Grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)`,
+              backgroundSize: '50px 50px'
+            }}></div>
+          </div>
         </div>
 
-        {/* Content */}
+        {/* Enhanced Content */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white">
           <div className="max-w-6xl mx-auto">
-            {/* Main Title with enhanced styling */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-16">
-              Soluciones tecnológicas para la{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-blue-200 animate-pulse">
-                innovación
-              </span>{' '}
-              en organizaciones públicas y privadas
-            </h1>
+            {/* Enhanced Main Title */}
+            <div className="mb-12">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-snug mb-4 tracking-tight">
+                Soluciones tecnológicas para la{' '}
+                <span className="relative">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-blue-200 animate-pulse">
+                    innovación
+                  </span>
+                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-300 rounded-full animate-pulse"></div>
+                </span>{' '}
+                en organizaciones públicas y privadas
+              </h1>
+              
+              {/* Enhanced subtitle */}
+              <p className="text-lg md:text-xl text-blue-100 font-light max-w-3xl mx-auto leading-relaxed">
+                Transformamos ideas en soluciones digitales que impulsan el crecimiento y la eficiencia
+              </p>
+            </div>
             
-            {/* Enhanced Feature Boxes Grid */}
+            {/* Enhanced Feature Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
               {heroFeatures.map((feature, index) => (
                 <div 
                   key={index}
-                  className="group relative bg-black/30 backdrop-blur-sm border border-white/20 rounded-2xl p-6 hover:bg-black/40 transition-all duration-500 transform hover:-translate-y-3 hover:scale-105"
+                  className="group relative bg-black/20 backdrop-blur-md border border-white/20 rounded-3xl p-6 hover:bg-black/30 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105"
                   style={{
-                    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%)',
-                    backdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.25)',
-                    boxShadow: '0 12px 40px rgba(0, 0, 0, 0.2)'
+                    background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
+                    backdropFilter: 'blur(20px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.3)'
                   }}
                 >
-                  {/* Enhanced Gradient Border Effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400/30 via-purple-400/30 to-blue-300/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"></div>
+                  {/* Enhanced gradient border effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-400/20 via-purple-400/20 to-blue-300/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-md"></div>
                   
                   <div className="relative z-10">
-                    {/* Enhanced Icon */}
-                    <div className="w-14 h-14 bg-gradient-to-br from-white/20 to-white/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-gradient-to-br group-hover:from-blue-400/30 group-hover:to-purple-400/30 transition-all duration-300 group-hover:scale-110">
-                      <div className="text-blue-200 group-hover:text-white transition-colors duration-300">
+                    {/* Enhanced Icon Container */}
+                    <div className="w-16 h-16 bg-gradient-to-br from-white/25 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gradient-to-br group-hover:from-blue-400/40 group-hover:to-purple-400/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                      <div className="text-blue-200 group-hover:text-white transition-colors duration-500 transform group-hover:scale-110">
                         {feature.icon}
                       </div>
                     </div>
                     
                     {/* Enhanced Text */}
-                    <p className="text-sm md:text-base text-white/90 group-hover:text-white leading-relaxed font-medium group-hover:font-semibold transition-all duration-300">
+                    <p className="text-sm md:text-base text-white/90 group-hover:text-white leading-relaxed font-medium group-hover:font-semibold transition-all duration-500">
                       {feature.title}
                     </p>
                   </div>
                   
-                  {/* Subtle glow effect */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  {/* Enhanced glow effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-transparent via-white/8 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  
+                  {/* Subtle border animation */}
+                  <div className="absolute inset-0 rounded-3xl border border-transparent group-hover:border-white/30 transition-all duration-700"></div>
                 </div>
               ))}
             </div>
@@ -256,25 +279,40 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
               <Link 
                 to="/nosotros"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-white to-blue-50 text-[#0A0E20] font-semibold rounded-lg hover:from-blue-50 hover:to-white transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/25"
+                className="group inline-flex items-center px-10 py-5 bg-gradient-to-r from-white to-blue-50 text-[#0A0E20] font-bold rounded-2xl hover:from-blue-50 hover:to-white transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/30 hover:shadow-2xl"
+                style={{
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
+                }}
               >
-                Conocé más sobre nosotros
-                <ArrowRight className="ml-2 h-5 w-5" />
+                <span className="mr-2">Conocé más sobre nosotros</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
               <Link 
                 to="/contacto"
-                className="inline-flex items-center px-8 py-4 border-2 border-white/80 text-white font-semibold rounded-lg hover:bg-white/10 hover:border-white transition-all duration-300 backdrop-blur-sm"
+                className="group inline-flex items-center px-10 py-5 border-2 border-white/80 text-white font-bold rounded-2xl hover:bg-white/10 hover:border-white transition-all duration-500 backdrop-blur-md transform hover:scale-105"
+                style={{
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
+                }}
               >
-                Hablemos de tu proyecto
+                <span className="mr-2">Hablemos de tu proyecto</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </Link>
             </div>
 
-            {/* Enhanced Stats */}
+            {/* Enhanced Stats Section */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <div key={index} className="text-center group">
-                  <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-blue-200 transition-colors duration-300">{stat.number}</div>
-                  <div className="text-blue-200 font-medium group-hover:text-white transition-colors duration-300">{stat.label}</div>
+                  <div className="relative">
+                    <div className="text-4xl md:text-5xl font-black text-white mb-3 group-hover:text-blue-200 transition-colors duration-500 transform group-hover:scale-110">
+                      {stat.number}
+                    </div>
+                    <div className="text-blue-200 font-semibold group-hover:text-white transition-colors duration-500 text-lg">
+                      {stat.label}
+                    </div>
+                    {/* Subtle underline effect */}
+                    <div className="w-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 mx-auto group-hover:w-16 transition-all duration-500"></div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -282,9 +320,16 @@ const Home = () => {
         </div>
 
         {/* Enhanced Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-pulse"></div>
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div className="group cursor-pointer">
+            <div className="w-6 h-12 border-2 border-white/60 rounded-full flex justify-center relative overflow-hidden">
+              <div className="w-1.5 h-4 bg-gradient-to-b from-white/80 to-white/40 rounded-full mt-2 animate-pulse group-hover:animate-bounce"></div>
+              {/* Glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <div className="text-white/60 text-xs mt-2 font-medium group-hover:text-white transition-colors duration-300">
+              Desliza
+            </div>
           </div>
         </div>
       </section>
@@ -293,142 +338,81 @@ const Home = () => {
       <FAQ />
 
       {/* Quiénes confían en nosotros */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-gray-50 relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-24 left-1/4 w-80 h-80 bg-[#0056A6]/10 rounded-full blur-2xl animate-pulse"></div>
+          <div className="absolute bottom-24 right-1/4 w-64 h-64 bg-[#0A0E20]/10 rounded-full blur-2xl animate-pulse delay-1000"></div>
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header mejorado */}
+          <div className="text-center mb-14">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl mb-6 shadow-xl">
+              <Star className="h-8 w-8" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-2 tracking-tight">
               Quiénes confían en nosotros
             </h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-[#0A0E20] to-[#0056A6] mx-auto mb-8"></div>
-            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-              Construimos relaciones a largo plazo basadas en la confianza, 
-              la excelencia y el compromiso con el éxito de nuestros clientes
+            <div className="w-20 h-1 bg-gradient-to-r from-[#0A0E20] to-[#0056A6] mx-auto mb-4 rounded-full"></div>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Construimos relaciones a largo plazo basadas en la confianza, la excelencia y el compromiso con el éxito de nuestros clientes
             </p>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Star className="h-10 w-10" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Excelencia</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Comprometidos con la calidad y la satisfacción del cliente en cada proyecto que desarrollamos
-              </p>
-            </div>
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Handshake className="h-10 w-10" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Confianza</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Relaciones sólidas construidas sobre la transparencia, el profesionalismo y la integridad
-              </p>
-            </div>
-            <div className="text-center group">
-              <div className="w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                <Award className="h-10 w-10" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Resultados</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Soluciones efectivas que generan valor real y medible para nuestros clientes
-              </p>
-            </div>
-          </div>
-
-          {/* Animated Client Logos Carousel */}
-          <div className="relative">
-            <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              Nuestros Partners y Clientes
-            </h3>
-            
-            {/* Gradient overlays for smooth fade effect */}
-            <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
-            <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
-            
-            {/* Scrolling container */}
+          {/* Carrusel de logos automático */}
+          <div className="relative mb-8">
             <div className="overflow-hidden">
-              <div className="flex animate-scroll space-x-8">
-                {/* First set of logos */}
+              <div className="flex animate-scroll gap-8 py-4 min-w-full items-center">
+                {/* Primer set de logos */}
                 {clientLogos.map((client, index) => (
-                  <div 
+                  <div
                     key={`first-${index}`}
-                    className="flex-shrink-0 w-48 h-24 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center border border-gray-100 group"
+                    className="flex-shrink-0 w-40 h-24 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center group relative p-0 border-0"
                   >
-                    <div className="relative w-full h-full overflow-hidden rounded-xl">
-                      <img 
-                        src={client.logo} 
+                    <div className="flex items-center justify-center w-full h-full">
+                      <img
+                        src={client.logo}
                         alt={client.name}
-                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-contain mx-auto block bg-transparent border-0 shadow-none rounded-none p-0 m-0"
+                        style={{ boxShadow: 'none', border: 'none', background: 'transparent', padding: 0, margin: 0, filter: 'none' }}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
                           target.nextElementSibling?.classList.remove('hidden');
                         }}
                       />
-                      <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white">
-                        <div className="text-center">
-                          <Building className="h-8 w-8 mx-auto mb-2" />
-                          <div className="font-bold text-sm">{client.name}</div>
-                        </div>
-                      </div>
+                    </div>
+                    {/* Placeholder si no hay logo */}
+                    <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl">
+                      <Building className="h-8 w-8 mx-auto mb-2" />
+                      <div className="font-bold text-xs text-center">{client.name}</div>
                     </div>
                   </div>
                 ))}
-                
-                {/* Duplicate set for seamless loop */}
+                {/* Segundo set para loop infinito */}
                 {clientLogos.map((client, index) => (
-                  <div 
+                  <div
                     key={`second-${index}`}
-                    className="flex-shrink-0 w-48 h-24 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center border border-gray-100 group"
+                    className="flex-shrink-0 w-40 h-24 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center group relative p-0 border-0"
                   >
-                    <div className="relative w-full h-full overflow-hidden rounded-xl">
-                      <img 
-                        src={client.logo} 
+                    <div className="flex items-center justify-center w-full h-full">
+                      <img
+                        src={client.logo}
                         alt={client.name}
-                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        className="w-full h-full object-contain mx-auto block bg-transparent border-0 shadow-none rounded-none p-0 m-0"
+                        style={{ boxShadow: 'none', border: 'none', background: 'transparent', padding: 0, margin: 0, filter: 'none' }}
                         onError={(e) => {
                           const target = e.target as HTMLImageElement;
                           target.style.display = 'none';
                           target.nextElementSibling?.classList.remove('hidden');
                         }}
                       />
-                      <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white">
-                        <div className="text-center">
-                          <Building className="h-8 w-8 mx-auto mb-2" />
-                          <div className="font-bold text-sm">{client.name}</div>
-                        </div>
-                      </div>
+                    </div>
+                    <div className="hidden absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl">
+                      <Building className="h-8 w-8 mx-auto mb-2" />
+                      <div className="font-bold text-xs text-center">{client.name}</div>
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonial */}
-          <div className="mt-20 text-center">
-            <div className="bg-gradient-to-r from-gray-50 via-blue-50 to-gray-50 rounded-3xl p-12 border border-gray-100 relative overflow-hidden">
-              {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0056A6]/5 rounded-full blur-3xl"></div>
-              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0A0E20]/5 rounded-full blur-3xl"></div>
-              
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-8">
-                  <Star className="h-8 w-8" />
-                </div>
-                <blockquote className="text-2xl md:text-3xl text-gray-700 italic mb-8 font-light leading-relaxed">
-                  "TSGroup ha sido un socio estratégico fundamental en nuestra transformación digital. 
-                  Su profesionalismo, capacidad técnica y compromiso superaron nuestras expectativas."
-                </blockquote>
-                <div className="text-[#0056A6] font-bold text-lg">
-                  — Cliente Satisfecho
-                </div>
-                <div className="text-gray-500 text-sm mt-2">
-                  Sector Público
-                </div>
               </div>
             </div>
           </div>
@@ -567,59 +551,12 @@ const Home = () => {
             {/* Interactive Map */}
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
-                <div className="relative h-96 bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl overflow-hidden">
-                  {/* Map Background */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-80"
-                    style={{
-                      backgroundImage: `url('https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop')`
-                    }}
+                <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                  <LocationMap
+                    locations={locations}
+                    currentLocation={currentLocation}
+                    onMarkerClick={setCurrentLocationIndex}
                   />
-                  
-                  {/* Map Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0A0E20]/60 to-[#0056A6]/60"></div>
-                  
-                  {/* Location Markers */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="relative w-full h-full">
-                      {/* Buenos Aires Marker */}
-                      <div 
-                        className={`absolute bottom-1/3 left-1/2 transform -translate-x-1/2 cursor-pointer transition-all duration-300 ${currentLocationIndex === 0 ? 'scale-125' : 'scale-100'}`}
-                        onClick={() => setCurrentLocationIndex(0)}
-                      >
-                        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#0056A6] shadow-lg animate-pulse"></div>
-                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-white text-sm font-bold whitespace-nowrap">
-                          Buenos Aires
-                        </div>
-                      </div>
-                      
-                      {/* Posadas Markers */}
-                      <div 
-                        className={`absolute bottom-1/4 right-1/3 transform translate-x-1/2 cursor-pointer transition-all duration-300 ${currentLocationIndex === 1 ? 'scale-125' : 'scale-100'}`}
-                        onClick={() => setCurrentLocationIndex(1)}
-                      >
-                        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#0056A6] shadow-lg animate-pulse delay-500"></div>
-                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-white text-sm font-bold whitespace-nowrap">
-                          Posadas
-                        </div>
-                      </div>
-                      
-                      <div 
-                        className={`absolute bottom-1/4 right-1/4 transform translate-x-1/2 cursor-pointer transition-all duration-300 ${currentLocationIndex === 2 ? 'scale-125' : 'scale-100'}`}
-                        onClick={() => setCurrentLocationIndex(2)}
-                      >
-                        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#0056A6] shadow-lg animate-pulse delay-1000"></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* Map Legend */}
-                  <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg p-3 text-white text-sm">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-white rounded-full border-2 border-[#0056A6]"></div>
-                      <span>Oficinas TSGroup</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -666,7 +603,7 @@ const Home = () => {
                     <span className="text-blue-200 font-medium text-lg">{currentLocation.type}</span>
                   </div>
                   
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-6 mb-8">
                     <div className="flex items-center justify-center text-blue-100">
                       <MapPin className="h-5 w-5 mr-3 flex-shrink-0" />
                       <div className="text-left">
@@ -682,26 +619,10 @@ const Home = () => {
                     
                     <div className="flex items-center justify-center text-blue-100">
                       <Mail className="h-5 w-5 mr-3 flex-shrink-0" />
-                      <span>{currentLocation.email}</span>
+                      <a href={`mailto:${currentLocation.email}`} className="hover:underline">
+                        {currentLocation.email}
+                      </a>
                     </div>
-                  </div>
-
-                  {/* Location Image */}
-                  <div className="relative h-32 bg-white/10 rounded-xl overflow-hidden border border-white/20">
-                    <img 
-                      src={currentLocation.image} 
-                      alt={`Oficina ${currentLocation.city}`}
-                      className="w-full h-full object-cover opacity-80"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        target.nextElementSibling?.classList.remove('hidden');
-                      }}
-                    />
-                    <div className="hidden absolute inset-0 flex items-center justify-center bg-white/10">
-                      <Building className="h-12 w-12 text-white" />
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                   </div>
                 </div>
               </div>
