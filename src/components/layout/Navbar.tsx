@@ -19,9 +19,18 @@ const Navbar = () => {
 
   const navItems = [
     { name: 'Inicio', path: '/' },
-    { name: 'Nosotros', path: '/nosotros' },
-    { name: 'Servicios', path: '/servicios' },
-    { name: 'Equipo', path: '/equipo' },
+    { 
+      name: 'Servicios', 
+      action: () => {
+        if (location.pathname === '/') {
+          const element = document.getElementById('que-hacemos');
+          if (element) element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.location.href = '/#que-hacemos';
+        }
+      }
+    },
+    { name: 'Quiénes Somos', path: '/quienes-somos' },
     { name: 'Contacto', path: '/contacto' },
   ];
 
@@ -73,6 +82,12 @@ const Navbar = () => {
     setShowMegaMenu(false);
   };
 
+  const handleNavItemClick = (item: any) => {
+    if (item.action) {
+      item.action();
+    }
+  };
+
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
@@ -103,24 +118,36 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`relative px-4 py-3 text-sm font-semibold transition-all duration-300 group ${
-                    isActive(item.path)
-                      ? 'text-white'
-                      : 'text-white/80 hover:text-white'
-                  }`}
-                >
-                  <span className="relative z-10">{item.name}</span>
-                  {/* Active indicator */}
-                  {isActive(item.path) && (
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
-                  )}
-                  {/* Hover effect */}
-                  <div className="absolute inset-0 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Link>
+              {navItems.map((item, index) => (
+                item.path ? (
+                  <Link
+                    key={index}
+                    to={item.path}
+                    className={`relative px-4 py-3 text-sm font-semibold transition-all duration-300 group ${
+                      isActive(item.path)
+                        ? 'text-white'
+                        : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    {/* Active indicator */}
+                    {isActive(item.path) && (
+                      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+                    )}
+                    {/* Hover effect */}
+                    <div className="absolute inset-0 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </Link>
+                ) : (
+                  <button
+                    key={index}
+                    onClick={() => handleNavItemClick(item)}
+                    className="relative px-4 py-3 text-sm font-semibold transition-all duration-300 group text-white/80 hover:text-white"
+                  >
+                    <span className="relative z-10">{item.name}</span>
+                    {/* Hover effect */}
+                    <div className="absolute inset-0 bg-white/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </button>
+                )
               ))}
               
               {/* Mega Menu Trigger */}
@@ -139,7 +166,7 @@ const Navbar = () => {
                 {/* Mega Menu */}
                 {showMegaMenu && (
                   <div className="absolute top-full left-0 mt-2 w-[800px] transform -translate-x-3/4">
-                    <div className="bg-[#0A0E20]/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
                       {/* Header */}
                       <div className="bg-gradient-to-r from-[#0056A6] to-[#004494] text-white px-6 py-4">
                         <div className="flex items-center">
@@ -156,7 +183,7 @@ const Navbar = () => {
                         <div className="grid grid-cols-5 gap-8">
                           {megaMenuSections.map((section, index) => (
                             <div key={index} className="space-y-4">
-                              <h4 className="font-bold text-white text-xs uppercase tracking-wider border-b border-blue-400/30 pb-2">
+                              <h4 className="font-bold text-gray-900 text-xs uppercase tracking-wider border-b border-[#0056A6]/30 pb-2">
                                 {section.title}
                               </h4>
                               <ul className="space-y-3">
@@ -164,13 +191,13 @@ const Navbar = () => {
                                   <li key={itemIndex}>
                                     <Link
                                       to={item.path}
-                                      className="group flex items-start p-3 rounded-xl hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-white/20"
+                                      className="group flex items-start p-3 rounded-xl hover:bg-gray-50 transition-all duration-300 border border-transparent hover:border-gray-200"
                                       onClick={() => setShowMegaMenu(false)}
                                     >
-                                      <div className="w-8 h-8 bg-white/10 group-hover:bg-[#0056A6] text-white/70 group-hover:text-white rounded-lg flex items-center justify-center mr-3 transition-all duration-300 flex-shrink-0">
+                                      <div className="w-8 h-8 bg-gray-100 group-hover:bg-[#0056A6] text-gray-600 group-hover:text-white rounded-lg flex items-center justify-center mr-3 transition-all duration-300 flex-shrink-0">
                                         {item.icon}
                                       </div>
-                                      <span className="text-sm text-white/80 group-hover:text-white font-medium transition-colors leading-tight">
+                                      <span className="text-sm text-gray-700 group-hover:text-[#0056A6] font-medium transition-colors leading-tight">
                                         {item.name}
                                       </span>
                                     </Link>
@@ -182,11 +209,11 @@ const Navbar = () => {
                         </div>
 
                         {/* Bottom CTA */}
-                        <div className="mt-8 pt-6 border-t border-white/20">
+                        <div className="mt-8 pt-6 border-t border-gray-200">
                           <div className="flex items-center justify-between">
                             <div>
-                              <h4 className="font-bold text-white text-lg">¿Necesitás una solución personalizada?</h4>
-                              <p className="text-white/70 text-sm">Nuestro equipo está listo para ayudarte</p>
+                              <h4 className="font-bold text-gray-900 text-lg">¿Necesitás una solución personalizada?</h4>
+                              <p className="text-gray-600 text-sm">Nuestro equipo está listo para ayudarte</p>
                             </div>
                             <Link
                               to="/contacto"
@@ -227,19 +254,32 @@ const Navbar = () => {
         {isOpen && (
           <div className="lg:hidden">
             <div className="px-2 pt-2 pb-6 space-y-1 bg-[#0A0E20]/95 backdrop-blur-xl border-t border-white/10 rounded-b-2xl mt-2">
-              {navItems.map((item) => (
-                <Link
-                  key={item.path}
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
-                    isActive(item.path)
-                      ? 'text-white bg-white/20 border border-white/30'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
-                  }`}
-                >
-                  {item.name}
-                </Link>
+              {navItems.map((item, index) => (
+                item.path ? (
+                  <Link
+                    key={index}
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 ${
+                      isActive(item.path)
+                        ? 'text-white bg-white/20 border border-white/30'
+                        : 'text-white/80 hover:text-white hover:bg-white/10'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      handleNavItemClick(item);
+                      setIsOpen(false);
+                    }}
+                    className="block w-full text-left px-4 py-3 text-base font-medium rounded-xl transition-all duration-300 text-white/80 hover:text-white hover:bg-white/10"
+                  >
+                    {item.name}
+                  </button>
+                )
               ))}
               
               {/* Mobile Mega Menu Items */}

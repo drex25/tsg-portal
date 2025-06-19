@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target, ChevronLeft, ChevronRight, Phone, Mail, Shield, Cloud, Database, Cpu } from 'lucide-react';
 import LocationMap from '../components/LocationMap';
 import FAQ from '../components/FAQ';
-import heroImage from '../assets/hero.bg.jpg';
-
 
 const Home = () => {
   const [currentLocationIndex, setCurrentLocationIndex] = useState(0);
@@ -175,7 +173,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(135deg, #0A0E20 0%, rgba(10, 14, 32, 0.98) 25%, rgba(0, 86, 166, 0.85) 75%, rgba(0, 68, 148, 0.95) 100%), url(${heroImage})`
+            backgroundImage: `linear-gradient(135deg, #0A0E20 0%, rgba(10, 14, 32, 0.98) 25%, rgba(0, 86, 166, 0.85) 75%, rgba(0, 68, 148, 0.95) 100%), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
           }}
         />
         
@@ -224,7 +222,7 @@ const Home = () => {
               {/* Enhanced CTA Buttons - Moved up */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
                 <Link 
-                  to="/nosotros"
+                  to="/quienes-somos"
                   className="group inline-flex items-center px-12 py-6 bg-gradient-to-r from-white to-blue-50 text-[#0A0E20] font-bold rounded-2xl hover:from-blue-50 hover:to-white transition-all duration-500 transform hover:scale-105 shadow-2xl hover:shadow-blue-500/30 text-lg"
                   style={{
                     boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
@@ -303,7 +301,9 @@ const Home = () => {
       </section>
 
       {/* FAQ Section - ¿Qué hacemos? */}
-      <FAQ />
+      <div id="que-hacemos">
+        <FAQ />
+      </div>
 
       {/* Quiénes confían en nosotros */}
       <section className="py-20 bg-gradient-to-br from-white via-blue-50 to-gray-50 relative overflow-hidden">
@@ -559,27 +559,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        {/* Bottom CTA - Positioned at bottom with high z-index */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-40 pointer-events-auto">
-          <div className="bg-white/95 backdrop-blur-lg rounded-2xl shadow-xl border border-white/20 p-6">
-            <div className="text-center">
-              <h3 className="text-lg font-bold text-gray-900 mb-2">
-                ¿Querés visitarnos?
-              </h3>
-              <p className="text-gray-600 mb-4 text-sm">
-                Coordiná una reunión en cualquiera de nuestras oficinas
-              </p>
-              <Link 
-                to="/contacto"
-                className="inline-flex items-center px-6 py-3 bg-[#0056A6] text-white font-semibold rounded-lg hover:bg-[#004494] transition-all duration-300 transform hover:scale-105 shadow-lg text-sm"
-              >
-                <MapPin className="h-4 w-4 mr-2" />
-                Coordinar reunión
-              </Link>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Partners Estratégicos Section */}
@@ -797,12 +776,15 @@ const Home = () => {
               Contactanos ahora
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
-            <Link 
-              to="/servicios"
+            <button 
+              onClick={() => {
+                const element = document.getElementById('que-hacemos');
+                if (element) element.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#0A0E20] transition-colors"
             >
               Ver nuestros servicios
-            </Link>
+            </button>
           </div>
         </div>
       </section>
