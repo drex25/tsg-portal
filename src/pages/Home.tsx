@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target } from 'lucide-react';
+import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target, ChevronLeft, ChevronRight, Phone, Mail } from 'lucide-react';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
+  const [currentLocationIndex, setCurrentLocationIndex] = useState(0);
+
   const stats = [
     { number: '+200', label: 'Profesionales' },
     { number: '7', label: 'Provincias' },
@@ -12,9 +14,36 @@ const Home = () => {
   ];
 
   const locations = [
-    { city: "Buenos Aires", address: "La Pampa 1391, Piso 2, CABA" },
-    { city: "Posadas", address: "Bolívar 1729, Misiones" },
-    { city: "Posadas", address: "Ayacucho 1475, Misiones" }
+    { 
+      city: "Buenos Aires", 
+      address: "La Pampa 1391, Piso 2", 
+      region: "CABA",
+      type: "Oficina Principal",
+      phone: "+54 11 1234-5678",
+      email: "buenosaires@tsgroup.com.ar",
+      coordinates: { lat: -34.6037, lng: -58.3816 },
+      image: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+    },
+    { 
+      city: "Posadas", 
+      address: "Bolívar 1729", 
+      region: "Misiones",
+      type: "Oficina Regional",
+      phone: "+54 376 444-5555",
+      email: "posadas@tsgroup.com.ar",
+      coordinates: { lat: -27.3676, lng: -55.8961 },
+      image: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+    },
+    { 
+      city: "Posadas", 
+      address: "Ayacucho 1475", 
+      region: "Misiones",
+      type: "Oficina Operativa",
+      phone: "+54 376 444-6666",
+      email: "operaciones@tsgroup.com.ar",
+      coordinates: { lat: -27.3676, lng: -55.8961 },
+      image: "https://images.pexels.com/photos/2041396/pexels-photo-2041396.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop"
+    }
   ];
 
   const heroFeatures = [
@@ -76,6 +105,16 @@ const Home = () => {
       description: "Contamos con equipos de alto rendimiento."
     }
   ];
+
+  const nextLocation = () => {
+    setCurrentLocationIndex((prev) => (prev + 1) % locations.length);
+  };
+
+  const prevLocation = () => {
+    setCurrentLocationIndex((prev) => (prev - 1 + locations.length) % locations.length);
+  };
+
+  const currentLocation = locations[currentLocationIndex];
 
   return (
     <div className="pt-16">
@@ -436,36 +475,192 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Locations Preview */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Locations Section with Interactive Map and Slides */}
+      <section className="py-24 bg-gradient-to-br from-[#0A0E20] via-[#0056A6] to-[#004494] relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 left-0 w-72 h-72 bg-blue-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-white/5 to-transparent rounded-full"></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl mb-8 border border-white/30">
+              <MapPin className="h-10 w-10 text-white" />
+            </div>
+            <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Presencia Nacional
             </h2>
-            <div className="w-24 h-1 bg-[#0056A6] mx-auto mb-6"></div>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Con oficinas estratégicamente ubicadas para brindar un servicio cercano y personalizado
+            <div className="w-32 h-1 bg-white mx-auto mb-8"></div>
+            <p className="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
+              Con oficinas estratégicamente ubicadas para brindar un servicio cercano y personalizado en todo el país
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {locations.map((location, index) => (
-              <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                <div className="flex items-start mb-4">
-                  <div className="w-12 h-12 bg-[#0056A6] text-white rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <Building className="h-6 w-6" />
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Interactive Map */}
+            <div className="relative">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+                <div className="relative h-96 bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl overflow-hidden">
+                  {/* Map Background */}
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-80"
+                    style={{
+                      backgroundImage: `url('https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop')`
+                    }}
+                  />
+                  
+                  {/* Map Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0A0E20]/60 to-[#0056A6]/60"></div>
+                  
+                  {/* Location Markers */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                      {/* Buenos Aires Marker */}
+                      <div 
+                        className={`absolute bottom-1/3 left-1/2 transform -translate-x-1/2 cursor-pointer transition-all duration-300 ${currentLocationIndex === 0 ? 'scale-125' : 'scale-100'}`}
+                        onClick={() => setCurrentLocationIndex(0)}
+                      >
+                        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#0056A6] shadow-lg animate-pulse"></div>
+                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-white text-sm font-bold whitespace-nowrap">
+                          Buenos Aires
+                        </div>
+                      </div>
+                      
+                      {/* Posadas Markers */}
+                      <div 
+                        className={`absolute bottom-1/4 right-1/3 transform translate-x-1/2 cursor-pointer transition-all duration-300 ${currentLocationIndex === 1 ? 'scale-125' : 'scale-100'}`}
+                        onClick={() => setCurrentLocationIndex(1)}
+                      >
+                        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#0056A6] shadow-lg animate-pulse delay-500"></div>
+                        <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 text-white text-sm font-bold whitespace-nowrap">
+                          Posadas
+                        </div>
+                      </div>
+                      
+                      <div 
+                        className={`absolute bottom-1/4 right-1/4 transform translate-x-1/2 cursor-pointer transition-all duration-300 ${currentLocationIndex === 2 ? 'scale-125' : 'scale-100'}`}
+                        onClick={() => setCurrentLocationIndex(2)}
+                      >
+                        <div className="w-6 h-6 bg-white rounded-full border-4 border-[#0056A6] shadow-lg animate-pulse delay-1000"></div>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-1">{location.city}</h3>
-                    <div className="flex items-start text-gray-600">
-                      <MapPin className="h-4 w-4 mr-2 mt-1 flex-shrink-0" />
-                      <span className="text-sm">{location.address}</span>
+                  
+                  {/* Map Legend */}
+                  <div className="absolute bottom-4 left-4 bg-black/50 backdrop-blur-sm rounded-lg p-3 text-white text-sm">
+                    <div className="flex items-center space-x-2">
+                      <div className="w-3 h-3 bg-white rounded-full border-2 border-[#0056A6]"></div>
+                      <span>Oficinas TSGroup</span>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Location Slide */}
+            <div className="relative">
+              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 min-h-[400px]">
+                {/* Navigation Arrows */}
+                <div className="flex justify-between items-center mb-6">
+                  <button 
+                    onClick={prevLocation}
+                    className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+                  >
+                    <ChevronLeft className="h-6 w-6 text-white" />
+                  </button>
+                  
+                  <div className="flex space-x-2">
+                    {locations.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentLocationIndex(index)}
+                        className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                          index === currentLocationIndex ? 'bg-white' : 'bg-white/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  
+                  <button 
+                    onClick={nextLocation}
+                    className="w-12 h-12 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-all duration-300 border border-white/30"
+                  >
+                    <ChevronRight className="h-6 w-6 text-white" />
+                  </button>
+                </div>
+
+                {/* Location Content */}
+                <div className="text-center text-white">
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/30">
+                      <Building className="h-10 w-10 text-white" />
+                    </div>
+                    <h3 className="text-3xl font-bold mb-2">{currentLocation.city}</h3>
+                    <span className="text-blue-200 font-medium text-lg">{currentLocation.type}</span>
+                  </div>
+                  
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center justify-center text-blue-100">
+                      <MapPin className="h-5 w-5 mr-3 flex-shrink-0" />
+                      <div className="text-left">
+                        <div className="font-medium">{currentLocation.address}</div>
+                        <div className="text-sm opacity-80">{currentLocation.region}</div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-center text-blue-100">
+                      <Phone className="h-5 w-5 mr-3 flex-shrink-0" />
+                      <span>{currentLocation.phone}</span>
+                    </div>
+                    
+                    <div className="flex items-center justify-center text-blue-100">
+                      <Mail className="h-5 w-5 mr-3 flex-shrink-0" />
+                      <span>{currentLocation.email}</span>
+                    </div>
+                  </div>
+
+                  {/* Location Image */}
+                  <div className="relative h-32 bg-white/10 rounded-xl overflow-hidden border border-white/20">
+                    <img 
+                      src={currentLocation.image} 
+                      alt={`Oficina ${currentLocation.city}`}
+                      className="w-full h-full object-cover opacity-80"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        target.nextElementSibling?.classList.remove('hidden');
+                      }}
+                    />
+                    <div className="hidden absolute inset-0 flex items-center justify-center bg-white/10">
+                      <Building className="h-12 w-12 text-white" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Contact CTA */}
+          <div className="mt-16 text-center">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
+              <h3 className="text-3xl font-bold text-white mb-6">
+                ¿Querés visitarnos?
+              </h3>
+              <p className="text-blue-100 mb-8 max-w-2xl mx-auto text-lg">
+                Nuestras puertas están abiertas. Coordiná una reunión en cualquiera de nuestras oficinas.
+              </p>
+              <Link 
+                to="/contacto"
+                className="inline-flex items-center px-8 py-4 bg-white text-[#0A0E20] font-semibold rounded-xl hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <MapPin className="h-5 w-5 mr-2" />
+                Coordinar reunión
+              </Link>
+            </div>
           </div>
         </div>
       </section>
