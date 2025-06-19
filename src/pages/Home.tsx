@@ -519,20 +519,6 @@ const Home = () => {
 
       {/* Locations Section with Full Width Map and Floating Info Box */}
       <section className="relative h-screen bg-gray-900 overflow-hidden">
-        {/* Header Overlay - Positioned at the very top */}
-        <div className="absolute top-0 left-0 right-0 bg-gradient-to-b from-black/70 via-black/40 to-transparent h-40 z-50 pointer-events-none">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-            <div className="text-center">
-              <h2 className="text-4xl font-bold text-white mb-2">
-                Presencia Nacional
-              </h2>
-              <p className="text-blue-100">
-                Oficinas estratégicamente ubicadas para brindar un servicio cercano
-              </p>
-            </div>
-          </div>
-        </div>
-
         {/* Full Width Map - Lower z-index */}
         <div className="absolute inset-0 z-10">
           <LocationMap
@@ -542,16 +528,16 @@ const Home = () => {
           />
         </div>
 
-        {/* Floating Info Box - Higher z-index and better positioning */}
-        <div className="absolute top-32 left-1/2 transform -translate-x-1/2 z-40 pointer-events-auto">
-          <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/30 p-8 min-w-[420px] max-w-lg">
+        {/* Floating Info Box - Positioned in top-right corner */}
+        <div className="absolute top-8 right-8 z-40 pointer-events-auto">
+          <div className="bg-white/98 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/30 p-6 min-w-[380px] max-w-md">
             {/* Navigation */}
             <div className="flex justify-between items-center mb-6">
               <button 
                 onClick={prevLocation}
-                className="w-12 h-12 bg-[#0056A6] hover:bg-[#004494] text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg"
+                className="w-10 h-10 bg-[#0056A6] hover:bg-[#004494] text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg"
               >
-                <ChevronLeft className="h-6 w-6" />
+                <ChevronLeft className="h-5 w-5" />
               </button>
               
               <div className="flex space-x-2">
@@ -559,7 +545,7 @@ const Home = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentLocationIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                       index === currentLocationIndex 
                         ? 'bg-[#0056A6] scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
@@ -570,29 +556,29 @@ const Home = () => {
               
               <button 
                 onClick={nextLocation}
-                className="w-12 h-12 bg-[#0056A6] hover:bg-[#004494] text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg"
+                className="w-10 h-10 bg-[#0056A6] hover:bg-[#004494] text-white rounded-full flex items-center justify-center transition-all duration-300 transform hover:scale-110 shadow-lg"
               >
-                <ChevronRight className="h-6 w-6" />
+                <ChevronRight className="h-5 w-5" />
               </button>
             </div>
 
             {/* Location Info */}
             <div className="text-center">
               <div className="mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {currentLocation.city}
                 </h3>
-                <span className="inline-block px-4 py-2 bg-[#0056A6] text-white text-sm font-medium rounded-full">
+                <span className="inline-block px-3 py-1 bg-[#0056A6] text-white text-sm font-medium rounded-full">
                   {currentLocation.type}
                 </span>
               </div>
               
               <div className="space-y-3 text-gray-700">
-                <div className="flex items-center justify-center">
-                  <MapPin className="h-5 w-5 text-[#0056A6] mr-3 flex-shrink-0" />
-                  <div className="text-left">
+                <div className="flex items-start">
+                  <MapPin className="h-4 w-4 text-[#0056A6] mr-3 mt-0.5 flex-shrink-0" />
+                  <div className="text-left text-sm">
                     <div className="font-medium">{currentLocation.address}</div>
-                    <div className="text-sm text-gray-500">{currentLocation.region}</div>
+                    <div className="text-xs text-gray-500">{currentLocation.region}</div>
                   </div>
                 </div>
               </div>
