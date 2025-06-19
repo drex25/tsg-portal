@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target, ChevronLeft, ChevronRight, Phone, Mail, Shield, Cloud, Database, Cpu } from 'lucide-react';
 import LocationMap from '../components/LocationMap';
 import FAQ from '../components/FAQ';
+import heroImage from '../assets/hero.bg.jpg';
+
 
 const Home = () => {
   const [currentLocationIndex, setCurrentLocationIndex] = useState(0);
@@ -173,7 +175,7 @@ const Home = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `linear-gradient(135deg, #0A0E20 0%, rgba(10, 14, 32, 0.98) 25%, rgba(0, 86, 166, 0.85) 75%, rgba(0, 68, 148, 0.95) 100%), url('https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080&fit=crop')`
+            backgroundImage: `linear-gradient(135deg, #0A0E20 0%, rgba(10, 14, 32, 0.98) 25%, rgba(0, 86, 166, 0.85) 75%, rgba(0, 68, 148, 0.95) 100%), url(${heroImage})`
           }}
         />
         
