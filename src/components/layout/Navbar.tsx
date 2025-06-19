@@ -50,14 +50,14 @@ const Navbar = () => {
         { name: "Administración Pública", icon: <Shield className="h-4 w-4" />, path: "/sectores/administracion-publica" },
         { name: "Industria y Energía", icon: <Zap className="h-4 w-4" />, path: "/sectores/industria-energia" },
         { name: "Servicios de Salud", icon: <Building2 className="h-4 w-4" />, path: "/sectores/salud" },
-        { name: "Entretenimiento y Eventos", icon: <Music className="h-4 w-4" />, path: "/sectores/entretenimiento" }
+        { name: "Entretenimiento", icon: <Music className="h-4 w-4" />, path: "/sectores/entretenimiento" }
       ]
     },
     {
-      title: "INTEGRIDAD Y TRANSPARENCIA",
+      title: "INTEGRIDAD",
       items: [
         { name: "Línea Ética", icon: <Eye className="h-4 w-4" />, path: "/integridad/linea-etica" },
-        { name: "Auditorías Externas", icon: <FileCheck className="h-4 w-4" />, path: "/integridad/auditorias" }
+        { name: "Auditorías", icon: <FileCheck className="h-4 w-4" />, path: "/integridad/auditorias" }
       ]
     }
   ];
@@ -121,72 +121,65 @@ const Navbar = () => {
                   <ChevronDown className={`ml-1 h-4 w-4 transition-transform duration-200 ${showMegaMenu ? 'rotate-180' : ''}`} />
                 </button>
 
-                {/* Responsive Mega Menu */}
+                {/* Compact Mega Menu */}
                 {showMegaMenu && (
-                  <div className="absolute top-full right-0 mt-2 w-screen max-w-5xl xl:max-w-6xl">
-                    <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
-                      <div className="relative">
-                        {/* Background Pattern */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#0056A6]/5 to-transparent"></div>
-                        
-                        {/* Header */}
-                        <div className="relative bg-gradient-to-r from-[#0056A6] to-[#004494] text-white p-4 lg:p-6">
-                          <div className="flex items-center">
-                            <Globe className="h-6 w-6 lg:h-8 lg:w-8 mr-3" />
-                            <div>
-                              <h3 className="text-lg lg:text-xl font-bold">Explora TSGroup</h3>
-                              <p className="text-blue-100 text-xs lg:text-sm">Descubre todas nuestras áreas de especialización</p>
-                            </div>
+                  <div className="absolute top-full right-0 mt-1 w-[900px] transform -translate-x-1/2">
+                    <div className="bg-white rounded-xl shadow-2xl border border-gray-100 overflow-hidden">
+                      {/* Compact Header */}
+                      <div className="bg-gradient-to-r from-[#0056A6] to-[#004494] text-white px-6 py-3">
+                        <div className="flex items-center">
+                          <Globe className="h-5 w-5 mr-2" />
+                          <div>
+                            <h3 className="font-bold text-sm">Explora TSGroup</h3>
+                            <p className="text-blue-100 text-xs">Todas nuestras áreas de especialización</p>
                           </div>
                         </div>
+                      </div>
 
-                        {/* Content Grid - Responsive */}
-                        <div className="relative p-4 lg:p-8">
-                          <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 lg:gap-8">
-                            {megaMenuSections.map((section, index) => (
-                              <div key={index} className="space-y-3 lg:space-y-4">
-                                <h4 className="font-bold text-gray-900 text-xs lg:text-sm uppercase tracking-wide border-b border-[#0056A6]/20 pb-2">
-                                  {section.title}
-                                </h4>
-                                <ul className="space-y-2 lg:space-y-3">
-                                  {section.items.map((item, itemIndex) => (
-                                    <li key={itemIndex}>
-                                      <Link
-                                        to={item.path}
-                                        className="group flex items-center p-2 rounded-lg hover:bg-[#0056A6]/5 transition-all duration-200"
-                                        onClick={() => setShowMegaMenu(false)}
-                                      >
-                                        <div className="w-6 h-6 lg:w-8 lg:h-8 bg-gray-100 group-hover:bg-[#0056A6] text-gray-600 group-hover:text-white rounded-lg flex items-center justify-center mr-2 lg:mr-3 transition-colors flex-shrink-0">
-                                          {item.icon}
-                                        </div>
-                                        <span className="text-xs lg:text-sm text-gray-700 group-hover:text-[#0056A6] font-medium transition-colors leading-tight">
-                                          {item.name}
-                                        </span>
-                                      </Link>
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
-                            ))}
-                          </div>
-
-                          {/* Bottom CTA - Responsive */}
-                          <div className="mt-6 lg:mt-8 pt-4 lg:pt-6 border-t border-gray-200">
-                            <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-xl p-4 lg:p-6">
-                              <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-                                <div className="text-center lg:text-left">
-                                  <h4 className="font-bold text-gray-900 mb-2 text-sm lg:text-base">¿Necesitás una solución personalizada?</h4>
-                                  <p className="text-gray-600 text-xs lg:text-sm">Nuestro equipo está listo para ayudarte</p>
-                                </div>
-                                <Link
-                                  to="/contacto"
-                                  className="bg-[#0056A6] text-white px-4 lg:px-6 py-2 lg:py-3 rounded-lg font-semibold hover:bg-[#004494] transition-colors transform hover:scale-105 text-sm lg:text-base whitespace-nowrap"
-                                  onClick={() => setShowMegaMenu(false)}
-                                >
-                                  Contactanos
-                                </Link>
-                              </div>
+                      {/* Compact Content Grid */}
+                      <div className="p-6">
+                        <div className="grid grid-cols-5 gap-6">
+                          {megaMenuSections.map((section, index) => (
+                            <div key={index} className="space-y-3">
+                              <h4 className="font-bold text-gray-900 text-xs uppercase tracking-wide border-b border-[#0056A6]/20 pb-1">
+                                {section.title}
+                              </h4>
+                              <ul className="space-y-2">
+                                {section.items.map((item, itemIndex) => (
+                                  <li key={itemIndex}>
+                                    <Link
+                                      to={item.path}
+                                      className="group flex items-start p-2 rounded-lg hover:bg-[#0056A6]/5 transition-all duration-200"
+                                      onClick={() => setShowMegaMenu(false)}
+                                    >
+                                      <div className="w-6 h-6 bg-gray-100 group-hover:bg-[#0056A6] text-gray-600 group-hover:text-white rounded-md flex items-center justify-center mr-2 transition-colors flex-shrink-0 mt-0.5">
+                                        {item.icon}
+                                      </div>
+                                      <span className="text-xs text-gray-700 group-hover:text-[#0056A6] font-medium transition-colors leading-tight">
+                                        {item.name}
+                                      </span>
+                                    </Link>
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
+                          ))}
+                        </div>
+
+                        {/* Compact Bottom CTA */}
+                        <div className="mt-4 pt-4 border-t border-gray-200">
+                          <div className="flex items-center justify-between">
+                            <div>
+                              <h4 className="font-bold text-gray-900 text-sm">¿Necesitás una solución personalizada?</h4>
+                              <p className="text-gray-600 text-xs">Nuestro equipo está listo para ayudarte</p>
+                            </div>
+                            <Link
+                              to="/contacto"
+                              className="bg-[#0056A6] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#004494] transition-colors text-sm whitespace-nowrap ml-4"
+                              onClick={() => setShowMegaMenu(false)}
+                            >
+                              Contactanos
+                            </Link>
                           </div>
                         </div>
                       </div>
