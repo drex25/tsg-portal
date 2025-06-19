@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target, ChevronLeft, ChevronRight, Phone, Mail } from 'lucide-react';
+import { ArrowRight, Star, Award, Handshake, Building, MapPin, Globe, User, Lightbulb, CheckCircle, Users, Zap, Target, ChevronLeft, ChevronRight, Phone, Mail, Shield, Cloud, Database, Cpu } from 'lucide-react';
 import FAQ from '../components/FAQ';
 
 const Home = () => {
@@ -81,6 +81,70 @@ const Home = () => {
     { name: "Adobe", logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
     { name: "Cisco", logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" },
     { name: "Intel", logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=200&h=100&fit=crop" }
+  ];
+
+  // Partners Estratégicos
+  const strategicPartners = [
+    { 
+      name: "Microsoft", 
+      category: "Cloud & Productivity",
+      logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Cloud className="h-6 w-6" />
+    },
+    { 
+      name: "Amazon Web Services", 
+      category: "Cloud Infrastructure",
+      logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Database className="h-6 w-6" />
+    },
+    { 
+      name: "Oracle", 
+      category: "Enterprise Solutions",
+      logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Shield className="h-6 w-6" />
+    },
+    { 
+      name: "SAP", 
+      category: "Business Applications",
+      logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Cpu className="h-6 w-6" />
+    },
+    { 
+      name: "Salesforce", 
+      category: "CRM Solutions",
+      logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Users className="h-6 w-6" />
+    },
+    { 
+      name: "Adobe", 
+      category: "Digital Experience",
+      logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Zap className="h-6 w-6" />
+    },
+    { 
+      name: "Cisco", 
+      category: "Network Security",
+      logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Shield className="h-6 w-6" />
+    },
+    { 
+      name: "Intel", 
+      category: "Hardware Solutions",
+      logo: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Cpu className="h-6 w-6" />
+    },
+    { 
+      name: "VMware", 
+      category: "Virtualization",
+      logo: "https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Cloud className="h-6 w-6" />
+    },
+    { 
+      name: "IBM", 
+      category: "AI & Analytics",
+      logo: "https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg?auto=compress&cs=tinysrgb&w=250&h=120&fit=crop",
+      icon: <Database className="h-6 w-6" />
+    }
   ];
 
   const proposalFeatures = [
@@ -661,6 +725,231 @@ const Home = () => {
                 Coordinar reunión
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Estratégicos Section */}
+      <section className="py-20 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-3xl mb-8 shadow-2xl">
+              <Handshake className="h-10 w-10" />
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              Partners Estratégicos
+            </h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-[#0A0E20] to-[#0056A6] mx-auto mb-8"></div>
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              Colaboramos con los líderes tecnológicos mundiales para ofrecer 
+              soluciones de vanguardia y garantizar el éxito de nuestros proyectos
+            </p>
+          </div>
+
+          {/* Partnership Benefits */}
+          <div className="grid md:grid-cols-4 gap-8 mb-16">
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Award className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Certificaciones Oficiales</h3>
+              <p className="text-gray-600 text-sm">
+                Nuestro equipo mantiene las certificaciones más altas de la industria
+              </p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Zap className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Acceso Prioritario</h3>
+              <p className="text-gray-600 text-sm">
+                Recursos exclusivos y soporte directo de nuestros partners tecnológicos
+              </p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Globe className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Alcance Global</h3>
+              <p className="text-gray-600 text-sm">
+                Red internacional de partners para proyectos de cualquier escala
+              </p>
+            </div>
+            <div className="text-center group">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <Shield className="h-8 w-8" />
+              </div>
+              <h3 className="text-lg font-bold text-gray-900 mb-3">Soporte Especializado</h3>
+              <p className="text-gray-600 text-sm">
+                Asistencia técnica especializada y consultoría de expertos
+              </p>
+            </div>
+          </div>
+
+          {/* Strategic Partners Carousel */}
+          <div className="relative">
+            <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              Nuestros Socios Tecnológicos
+            </h3>
+            
+            {/* Gradient overlays for smooth fade effect */}
+            <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10"></div>
+            
+            {/* Scrolling container */}
+            <div className="overflow-hidden">
+              <div className="flex animate-scroll space-x-8">
+                {/* First set of partners */}
+                {strategicPartners.map((partner, index) => (
+                  <div 
+                    key={`first-${index}`}
+                    className="flex-shrink-0 w-64 h-32 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 group relative overflow-hidden"
+                  >
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name}
+                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-20 group-hover:opacity-30"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/95 to-gray-50/95"></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-center">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                          {partner.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 text-lg group-hover:text-[#0056A6] transition-colors duration-300">
+                            {partner.name}
+                          </h4>
+                          <p className="text-sm text-gray-600 font-medium">
+                            {partner.category}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Hover Effect Border */}
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#0056A6]/20 rounded-xl transition-all duration-300"></div>
+                  </div>
+                ))}
+                
+                {/* Duplicate set for seamless loop */}
+                {strategicPartners.map((partner, index) => (
+                  <div 
+                    key={`second-${index}`}
+                    className="flex-shrink-0 w-64 h-32 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 border border-gray-100 group relative overflow-hidden"
+                  >
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name}
+                        className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-20 group-hover:opacity-30"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                        }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/95 to-gray-50/95"></div>
+                    </div>
+                    
+                    {/* Content */}
+                    <div className="relative z-10 p-6 h-full flex flex-col justify-center">
+                      <div className="flex items-center mb-3">
+                        <div className="w-10 h-10 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-lg flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                          {partner.icon}
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-gray-900 text-lg group-hover:text-[#0056A6] transition-colors duration-300">
+                            {partner.name}
+                          </h4>
+                          <p className="text-sm text-gray-600 font-medium">
+                            {partner.category}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Hover Effect Border */}
+                    <div className="absolute inset-0 border-2 border-transparent group-hover:border-[#0056A6]/20 rounded-xl transition-all duration-300"></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Partnership CTA */}
+          <div className="mt-20 text-center">
+            <div className="bg-gradient-to-r from-gray-50 via-blue-50 to-gray-50 rounded-3xl p-12 border border-gray-100 relative overflow-hidden">
+              {/* Background decoration */}
+              <div className="absolute top-0 right-0 w-64 h-64 bg-[#0056A6]/5 rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#0A0E20]/5 rounded-full blur-3xl"></div>
+              
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#0A0E20] to-[#0056A6] text-white rounded-2xl flex items-center justify-center mx-auto mb-8">
+                  <Handshake className="h-8 w-8" />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  ¿Querés ser nuestro partner?
+                </h3>
+                <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+                  Exploremos oportunidades de colaboración estratégica para crear soluciones innovadoras 
+                  que generen valor para nuestros clientes
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link 
+                    to="/contacto"
+                    className="inline-flex items-center px-8 py-4 bg-[#0056A6] text-white font-semibold rounded-lg hover:bg-[#004494] transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    <Handshake className="h-5 w-5 mr-2" />
+                    Contactanos para Alianzas
+                  </Link>
+                  <Link 
+                    to="/alianzas/socios"
+                    className="inline-flex items-center px-8 py-4 border-2 border-[#0056A6] text-[#0056A6] font-semibold rounded-lg hover:bg-[#0056A6] hover:text-white transition-all duration-300"
+                  >
+                    Ver Todas las Alianzas
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with dark theme */}
+      <section className="py-20 bg-gradient-to-r from-[#0A0E20] via-[#0056A6] to-[#004494]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            ¿Listo para transformar tu organización?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+            Conversemos sobre cómo nuestras soluciones tecnológicas pueden impulsar 
+            el crecimiento y la eficiencia de tu empresa
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/contacto"
+              className="inline-flex items-center px-8 py-4 bg-white text-[#0A0E20] font-semibold rounded-lg hover:bg-blue-50 transition-colors transform hover:scale-105"
+            >
+              Contactanos ahora
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+            <Link 
+              to="/servicios"
+              className="inline-flex items-center px-8 py-4 border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-[#0A0E20] transition-colors"
+            >
+              Ver nuestros servicios
+            </Link>
           </div>
         </div>
       </section>
