@@ -208,11 +208,8 @@ const Home = () => {
             <div className="mb-16">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight mb-8 tracking-tight">
                 Soluciones tecnológicas para la{' '}
-                <span className="relative">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-blue-200 animate-pulse">
-                    innovación
-                  </span>
-                  <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-purple-400 to-blue-300 rounded-full animate-pulse"></div>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-blue-200 animate-pulse">
+                  innovación
                 </span>{' '}
                 en organizaciones públicas y privadas
               </h1>
@@ -247,12 +244,12 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Enhanced Feature Cards Grid - Redesigned for better visual hierarchy */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {/* Enhanced Feature Cards Grid - 5 cards in a single row on desktop */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-16">
               {heroFeatures.map((feature, index) => (
                 <div 
                   key={index}
-                  className="group relative bg-black/20 backdrop-blur-md border border-white/20 rounded-3xl p-8 hover:bg-black/30 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105"
+                  className="group relative bg-black/20 backdrop-blur-md border border-white/20 rounded-3xl p-6 hover:bg-black/30 transition-all duration-700 transform hover:-translate-y-4 hover:scale-105"
                   style={{
                     background: 'linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
                     backdropFilter: 'blur(20px)',
@@ -265,14 +262,14 @@ const Home = () => {
                   
                   <div className="relative z-10">
                     {/* Enhanced Icon Container */}
-                    <div className="w-20 h-20 bg-gradient-to-br from-white/25 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-gradient-to-br group-hover:from-blue-400/40 group-hover:to-purple-400/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                    <div className="w-16 h-16 bg-gradient-to-br from-white/25 to-white/10 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-gradient-to-br group-hover:from-blue-400/40 group-hover:to-purple-400/40 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
                       <div className="text-blue-200 group-hover:text-white transition-colors duration-500 transform group-hover:scale-110">
                         {feature.icon}
                       </div>
                     </div>
                     
                     {/* Enhanced Text */}
-                    <p className="text-base md:text-lg text-white/90 group-hover:text-white leading-relaxed font-medium group-hover:font-semibold transition-all duration-500 text-center">
+                    <p className="text-sm md:text-base text-white/90 group-hover:text-white leading-relaxed font-medium group-hover:font-semibold transition-all duration-500">
                       {feature.title}
                     </p>
                   </div>
