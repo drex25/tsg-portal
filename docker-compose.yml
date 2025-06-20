@@ -1,11 +1,39 @@
 services:
+  # Production build
   app:
-    build: .
+    build:
+      context: .
+      target: production
     ports:
-      - "5173:5173"
-    volumes:
-      - .:/app
-      - /app/node_modules
+      - "80:80"
     environment:
-      - NODE_ENV=development
-    command: npm run dev -- --host 
+      - NODE_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - tsg-network
+
+  # Development build (commented out - uncomment for development)
+  # app-dev:
+  #   build:
+  #     context: .
+  #     target: builder
+  #   ports:
+  #     - "5173:5173"
+  #   volumes:
+  #     - .:/app
+  #     - /app/node_modules
+  #   environment:
+  #     - NODE_ENV=development
+  #   command: npm run dev -- --host
+  #   networks:
+  #     - tsg-network
+
+networks:
+  tsg-network:
+    driver: bridge 
